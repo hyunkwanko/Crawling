@@ -1,0 +1,24 @@
+{
+  "name": "crawling",
+  "version": "1.0.0",
+  "description": "Melon crawling",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyunkwanko/Java.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hyunkwanko/Java/issues"
+  },
+  "homepage": "https://github.com/hyunkwanko/Java#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "http": "0.0.0",
+    "request": "^2.88.0"
+  }
+}
