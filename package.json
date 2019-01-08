@@ -1,18 +1,23 @@
 {
   "name": "crawling",
-  "version": "0.0.0",
-  "private": true,
+  "version": "1.0.0",
+  "description": "Melon Crawling",
+  "main": "index.js",
   "scripts": {
-    "start": "node ./bin/www"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyunkwanko/Java.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hyunkwanko/Java/issues"
+  },
+  "homepage": "https://github.com/hyunkwanko/Java#readme",
   "dependencies": {
     "cheerio": "^1.0.0-rc.2",
-    "cookie-parser": "~1.4.3",
-    "debug": "~2.6.9",
-    "ejs": "~2.5.7",
-    "express": "~4.16.0",
-    "http-errors": "~1.6.2",
-    "morgan": "~1.9.0",
     "request": "^2.88.0"
   }
 }
