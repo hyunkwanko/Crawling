@@ -10,7 +10,8 @@ client.fetch(url, param, function(err, $, res){
     if (err) { console.log("Error: ", err); return; }
 
     // 링크를 추출하여 표시
-    $("a").each(function(idx){ // idx -> object들을 순차적으로 가져온다.
+    // idx -> object들을 순차적으로 가져온다.
+    $("a").each(function(idx){
         var text = $(this).text();
         var href = $(this).attr('href');
         console.log(text + ":" + href);
