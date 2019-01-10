@@ -17,6 +17,10 @@ client.fetch(url, param, function(err, $, res){
         var text = $(this).text();
         var href = $(this).attr('href');
         if (!href) return;
+        // 상대 경로를 절대 경로로 변환
+        var href2 = urlType.resolve(url, href);
+        // 결과를 표시
         console.log(text + ":" + href);
+        console.log(" => " + href2 + "\n");
     });
 });
