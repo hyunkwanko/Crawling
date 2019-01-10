@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/hyunkwanko/Java#readme",
   "dependencies": {
-    "cheerio": "^1.0.0-rc.2",
+    "cheerio-httpcli": "^0.7.3",
     "request": "^2.88.0"
   }
 }
