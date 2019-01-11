@@ -29,9 +29,8 @@ function downloadRec(url, level){
 
     // 외부 페이지는 무시
     console.log(TARGET_URL);
-    var us = TARGET_URL.split("/");     // '/'를 기준으로 split해서 배열에 저장
-    console.log(us);
-    us.pop();
+    var us = TARGET_URL.split("/");     // '/'를 기준으로 split해서 배열로 저장
+    us.pop();                           // 배열의 제일 마지막 인덱스 제거
     console.log(us);
     var base = us.join("/");
     console.log(base);
