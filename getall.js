@@ -61,3 +61,19 @@ function downloadRec(url, level){
         fs.writeFileSync(savepath, $.html());
     });
 }
+
+// 저장할 디렉터리 존재 유무 확인
+function checkSaveDir(fname) {
+    // 디렉터리 부분만 검출
+    var dir = path.dirname(fname);
+
+    // 디렉터리를 재귀적으로 생성
+    var dirlist = dir.split("/");
+    var p = "";
+    for (var i in dirlist) {
+        p += dirlist[i] + "/";
+        if (!fs.existsSync(p)) {
+            fs.mkdirSync(p);
+        }
+    }
+}
