@@ -28,41 +28,40 @@ function downloadRec(url, level){
     list[url] = true;
 
     // 외부 페이지는 무시
-    console.log(TARGET_URL);
     var us = TARGET_URL.split("/");     // '/'를 기준으로 split해서 배열로 저장
     us.pop();                           // 배열의 제일 마지막 인덱스 제거
-    console.log(us);
-    var base = us.join("/");
+    var base = us.join("/");            // '/'를 기준으로 url 생성
     console.log(base);
+    console.log(url.indexOf(base));
     if (url.indexOf(base) < 0)
         return;
 
     // HTML을 취득
-    // client.fetch(url, {}, function(err, $, res){
-    //     // 링크된 페이지를 취득
-    //     $("a").each(function(idx){
-    //         // <a> 태그의 링크를 획득
-    //         var href = $(this).attr('href');
-    //         if (!href)
-    //             return;
+    client.fetch(url, {}, function(err, $, res){
+        // 링크된 페이지를 취득
+        $("a").each(function(idx){
+            // <a> 태그의 링크를 획득
+            var href = $(this).attr('href');
+            if (!href)
+                return;
 
-    //         // 상대 경로를 절대 경로로 변환
-    //         href = urlType.resolve(url, href);
+            // 상대 경로를 절대 경로로 변환
+            href = urlType.resolve(url, href);
 
-    //         // '#' 이후를 무시(a.html#aa와 a.html#bb는 같다)
-    //         href = href.replace(/\#.+$/, ""); // 말미의 #를 제거
-    //         downloadRec(href, level + 1);
-    //     });
+            // '#' 이후를 무시(a.html#aa와 a.html#bb는 같다)
+            href = href.replace(/\#.+$/, ""); // 말미의 #를 제거
+            downloadRec(href, level + 1);
+        });
 
-    //     // 페이지 저장(파일명 지정)
-    //     if (url.substr(url.length-1, 1) == '/') {
-    //         url += "index.html"; // 인덱스 자동 추가
-    //     }
-    //     var savepath = url.split("/").slice(2).join("/");
-    //     checkSaveDir(savepath);
-    //     console.log(savepath);
-    //     fs.writeFileSync(savepath, $.html());
-    // });
+        // 페이지 저장(파일명 지정)
+        if (url.substr(url.length-1, 1) == '/') {
+            url += "index.html"; // 인덱스 자동 추가
+        }
+        var savepath = url.split("/").slice(2).join("/");
+        checkSaveDir(savepath);
+        console.log(savepath);
+        fs.writeFileSync(savepath, $.html());
+    });
 }
 
 // 저장할 디렉터리 존재 유무 확인
