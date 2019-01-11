@@ -17,7 +17,6 @@ if (!fs.existsSync(savedir)){
 // URL 지정
 var url = "https://ko.wikipedia.org/wiki/" + encodeURIComponent("강아지");
 var param = {};
-
 // HTML 파일 획득
 client.fetch(url, param, function(err, $, res){
     if (err) { console.log("error"); return; }
@@ -32,6 +31,7 @@ client.fetch(url, param, function(err, $, res){
         // console.log(1 + fname);
         fname = savedir + "/" + fname.replace(/[^a-zA-Z0-9\.]+/g, '_');
         // console.log(fname);
+
         // 다운로드
         request(src).pipe(fs.createWriteStream(fname));
     });
