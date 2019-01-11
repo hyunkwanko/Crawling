@@ -26,11 +26,12 @@ client.fetch(url, param, function(err, $, res){
         var src = $(this).attr('src');
         // 상대 경로를 절대 경로로 변환
         src = urlType.resolve(url, src);
-
+        
         // 저장 파일 이름 결정
         var fname = urlType.parse(src).pathname;
+        // console.log(1 + fname);
         fname = savedir + "/" + fname.replace(/[^a-zA-Z0-9\.]+/g, '_');
-
+        // console.log(fname);
         // 다운로드
         request(src).pipe(fs.createWriteStream(fname));
     });
