@@ -38,31 +38,31 @@ function downloadRec(url, level){
         return;
 
     // HTML을 취득
-    // client.fetch(url, {}, function(err, $, res){
-    //     // 링크된 페이지를 취득
-    //     $("a").each(function(idx){
-    //         // <a> 태그의 링크를 획득
-    //         var href = $(this).attr('href');
-    //         if (!href)
-    //             return;
+    client.fetch(url, {}, function(err, $, res){
+        // 링크된 페이지를 취득
+        $("a").each(function(idx){
+            // <a> 태그의 링크를 획득
+            var href = $(this).attr('href');
+            if (!href)
+                return;
 
-    //         // 상대 경로를 절대 경로로 변환
-    //         href = urlType.resolve(url, href);
+            // 상대 경로를 절대 경로로 변환
+            href = urlType.resolve(url, href);
 
-    //         // '#' 이후를 무시(a.html#aa와 a.html#bb는 같다)
-    //         href = href.replace(/\#.+$/, ""); // 말미의 #를 제거
-    //         downloadRec(href, level + 1);
-    //     });
+            // '#' 이후를 무시(a.html#aa와 a.html#bb는 같다)
+            href = href.replace(/\#.+$/, ""); // 말미의 #를 제거
+            downloadRec(href, level + 1);
+        });
 
-    //     // 페이지 저장(파일명 지정)
-    //     if (url.substr(url.length-1, 1) == '/') {
-    //         url += "index.html"; // 인덱스 자동 추가
-    //     }
-    //     var savepath = url.split("/").slice(2).join("/");
-    //     checkSaveDir(savepath);
-    //     console.log(savepath);
-    //     fs.writeFileSync(savepath, $.html());
-    // });
+        // 페이지 저장(파일명 지정)
+        if (url.substr(url.length-1, 1) == '/') {
+            url += "index.html"; // 인덱스 자동 추가
+        }
+        var savepath = url.split("/").slice(2).join("/");
+        checkSaveDir(savepath);
+        console.log(savepath);
+        fs.writeFileSync(savepath, $.html());
+    });
 }
 
 // 저장할 디렉터리 존재 유무 확인
