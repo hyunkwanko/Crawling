@@ -55,7 +55,8 @@ function downloadRec(url, level){
         });
 
         // 페이지 저장(파일명 지정)
-        if (url.substr(url.length-1, 1) == '/') {
+        console.log(url.substr(url.length-1, 1));
+        if (url.substr(url.length-1, 1) == '/') {               // 제일 마지막 문자 추출 -> substr(시작 위치, 추출 길이)
             url += "index.html"; // 인덱스 자동 추가
         }
 
