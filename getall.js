@@ -32,8 +32,8 @@ function downloadRec(url, level){
     // console.log(us);
     us.pop();                           // 배열의 제일 마지막 인덱스 제거
     var base = us.join("/");            // '/'를 기준으로 url 생성
-    console.log(base);
-    console.log(url.indexOf(base));     // url 안에 base 문자열이 포함되어 있는지 체크해서 0 또는 -1을 반환 -> 0 : true
+    // console.log(base);
+    // console.log(url.indexOf(base));     // url 안에 base 문자열이 포함되어 있는지 체크해서 0 또는 -1을 반환 -> 0 : true
     if (url.indexOf(base) < 0)
         return;
 
@@ -53,6 +53,7 @@ function downloadRec(url, level){
             href = href.replace(/\#.+$/, ""); // 말미의 #를 제거
             downloadRec(href, level + 1);
         });
+        // console.log(url);
 
         // 페이지 저장(파일명 지정)
         if (url.substr(url.length-1, 1) == '/') {
@@ -61,7 +62,7 @@ function downloadRec(url, level){
         var savepath = url.split("/").slice(2).join("/");
         checkSaveDir(savepath);
         console.log(savepath);
-        fs.writeFileSync(savepath, $.html());
+        // fs.writeFileSync(savepath, $.html());
     });
 }
 
@@ -69,6 +70,7 @@ function downloadRec(url, level){
 function checkSaveDir(fname) {
     // 디렉터리 부분만 검출
     var dir = path.dirname(fname);
+    // console.log(dir);
 
     // 디렉터리를 재귀적으로 생성
     var dirlist = dir.split("/");
