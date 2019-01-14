@@ -53,15 +53,15 @@ function downloadRec(url, level){
             href = href.replace(/\#.+$/, ""); // 말미의 #를 제거
             downloadRec(href, level + 1);
         });
-        // console.log(url);
 
         // 페이지 저장(파일명 지정)
         if (url.substr(url.length-1, 1) == '/') {
             url += "index.html"; // 인덱스 자동 추가
         }
-        var savepath = url.split("/").slice(2).join("/");
+
+        var savepath = url.split("/").slice(2).join("/");       // 배열에서 세 번째것부터 가져온다.
         checkSaveDir(savepath);
-        console.log(savepath);
+        // console.log(savepath);
         // fs.writeFileSync(savepath, $.html());
     });
 }
