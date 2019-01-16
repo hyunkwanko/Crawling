@@ -19,7 +19,6 @@ Nodejs를 통한 Web Crawling
 
 > sudo crontab -e
 
-```
-
+~~~
     * * * * * /path/Shell.sh
-```
+~~~
