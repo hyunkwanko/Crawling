@@ -1,6 +1,6 @@
 # Crawling
 
-Nodejs를 통한 Web Crawling
+Javascript와 Node.js를 이용한 Web Crawling
 
 > sudo vim Shell.sh
 
